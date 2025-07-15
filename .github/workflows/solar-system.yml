@@ -47,6 +47,10 @@ jobs:
          - name: code coverage
            run: npm run code-coverage
            continue-on-error: true
-          
-           
+         - name: uploding code coverage
+           uses: actions/upload-artifact@v4
+           with:
+               name: Code-Coverage-Result
+               path: coverage
+               retention-days: 5
            
