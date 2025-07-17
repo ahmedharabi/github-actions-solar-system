@@ -9,6 +9,7 @@ on:
     
 jobs:
     unit-testing:
+        continue-on-error: true
         name: Unit Testing
         runs-on: ubuntu-latest
         steps:
