@@ -40,14 +40,17 @@ jobs:
     code-coverage: 
        name : code coverage
        runs-on: ubuntu-latest
+       container:
+        image: node:20
+        
        steps:
          - name: checkout repo
            uses: actions/checkout@v4
 
-         - name : setup nodejs
-           uses: actions/setup-node@v4
-           with:
-             node-version: 18
+         #- name : setup nodejs
+          # uses: actions/setup-node@v4
+           #with:
+            # node-version: 18
          - name: install dependencies
            run: npm install
          - name: code coverage
