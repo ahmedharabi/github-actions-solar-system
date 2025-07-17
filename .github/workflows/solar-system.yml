@@ -62,7 +62,7 @@ jobs:
     docker:
       name : docker
       runs-on: ubuntu:latest
-      needs: [code-coverage,unit-testing]
+      needs: [code-coverage]
       steps:
         - name: checkout repo
           uses: actions/checkout@v4
