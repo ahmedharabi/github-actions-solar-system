@@ -19,6 +19,10 @@ jobs:
           uses: actions/setup-node@v4
           with:
             node-version: 20
+        - name:  Cache NPM dependencies
+          with:
+            key: "${os.runner}-node-${hashFiles(../package-lock.json)}"
+            path: ../node_modules
     
         - name: Install Dependencies
           run: npm install
