@@ -103,3 +103,13 @@ jobs:
 
       - name: Show Kubernetes Version
         run: kubectl version -o yaml
+      - name: saave nginx ip
+        run: 'echo INGRESS_IP=kubectl -n ingress-nginx get services ingress-nginx-controller -o jsonpath="{.status.loadBalancer.ingress[0].ip}" >> $GITHUB_ENV'
+      
+      - name: replace place holders
+        uses: cschleiden/replace-tokens
+        with:
+          files: '["**/*.js"]'
+
+      - name: see the config files    
+        run: cat kubernetes/development/*.yaml
